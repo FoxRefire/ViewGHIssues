@@ -1,0 +1,13 @@
+{
+    "name": "View Github Issues&PRs",
+    "description": "View any user's all issues&PRs from profile page",
+    "version": "1.0",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+          "js": ["ViewGithubIssuesPRs.user.js"],
+          "matches": ["*://github.com/*"]
+        }
+    ],
+    "host_permissions": ["*://github.com/*"]
+}
