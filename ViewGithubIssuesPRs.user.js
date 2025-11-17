@@ -36,7 +36,7 @@ async function main(user){
         let href = action.href.replace("$USER", user)
         target.insertAdjacentHTML("beforebegin", `
             <div class="mb-3">
-                <a href="${href}">
+                <a href="${href}" id="viewGH">
                     <button name="button" type="button" class="btn btn-block">${action.name}</button>
                 </a>
             </div>
@@ -44,8 +44,20 @@ async function main(user){
     })
 }
 
-let urlPath = new URL(location.href).pathname.slice(1)
-if(urlPath.split("/").length === 1){
-    let user = urlPath
-    main(user)
+function run() {
+    let urlPath = new URL(location.href).pathname.slice(1)
+    if(urlPath.split("/").length === 1 && !document.getElementById("viewGH")){
+        let user = urlPath
+        main(user)
+    }
 }
+
+
+let lastHref = location.href;
+setInterval(() => {
+    if (location.href !== lastHref) {
+        lastHref = location.href;
+        run();
+    }
+}, 500);
+run();
