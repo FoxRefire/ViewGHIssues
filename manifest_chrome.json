@@ -1,7 +1,7 @@
 {
     "name": "View Github Issues&PRs",
     "description": "View any user's all issues&PRs from profile page",
-    "version": "1.0",
+    "version": "1.1",
     "manifest_version": 3,
     "content_scripts": [
         {
